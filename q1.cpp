@@ -5,16 +5,20 @@
 #include <iostream>
 using namespace std;
 
-void printNumber() {
+void printNumber()
+{
     int number;
     cin >> number;
     cout << number;
 }
-int main() {
+int main()
+{
 
-     // Redirect input/output to files
-    freopen("q_input.txt", "r", stdin);  //Read input from a file instead of the terminal
-    freopen("q_output.txt", "w", stdout); //Write output to a file instead of printing it on screen
+    // Redirect standard input to read from "q_input.txt" and standard output to write to "q_output.txt".
+    // This allows the program to take input from a file and save the output to another file,
+    // which is useful for testing and debugging.
+    freopen("q_input.txt", "r", stdin);
+    freopen("q_output.txt", "w", stdout);
 
     printNumber();
     return 0;
