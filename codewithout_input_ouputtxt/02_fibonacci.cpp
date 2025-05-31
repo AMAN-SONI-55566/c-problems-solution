@@ -1,23 +1,24 @@
+
 #include <iostream>
+#include <fstream>
 using namespace std;
 
-void printFibonacci(int n) {
+void printFibonacci(int n, ofstream &outFile) {
     int a = 0, b = 1;
-    if (n >= 1) cout << a << " ";
-    if (n >= 2) cout << b << " ";
-    for (int i = 3; i <= n; ++i) {
+    outFile << a << " " << b << " ";
+    for (int i = 2; i < n; ++i) {
         int c = a + b;
-        cout << c << " ";
+        outFile << c << " ";
         a = b;
         b = c;
     }
-    cout << endl;
 }
 
 int main() {
+    ifstream inFile("input.txt");
+    ofstream outFile("output.txt");
     int n;
-    cout << "Enter the number of Fibonacci terms: ";
-    cin >> n;
-    printFibonacci(n);
+    inFile >> n;
+    printFibonacci(n, outFile);
     return 0;
 }
